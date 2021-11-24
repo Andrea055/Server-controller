@@ -12,6 +12,8 @@ while n==0:
     timeusage.append(t)
     x=x+1
     t=t+1
+    if t>20:
+        timeusage.pop(1)
     plt.plot(timeusage,usage)
     plt.ylabel('Ram usage')
     plt.xlabel('Time')
