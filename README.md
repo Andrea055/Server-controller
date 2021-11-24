@@ -25,8 +25,10 @@ If you want to contribute you're welcome, do the pull request and i check it. If
 ## Thank to
 Billchurch for the fantastic implementetion of ssh via web
 **[webssh2](https://github.com/billchurch/webssh2)**
+
 SunilWang for node-os-utils library for system info part
 **[node-os-utils](https://github.com/SunilWang/node-os-utils)**
+
 Matplotlib python library used to plotting data of CPU and RAM usage
 
 ## License
