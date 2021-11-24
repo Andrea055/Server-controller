@@ -1,6 +1,6 @@
 # Server-Controller
 
-Server controller is an application written in JS, Python for backend and HTML,CSS and JS for fronted, the purpose is monitor a PC or VPS or NAS... and view CPU usage,Ram, Log and many more. The target of this project is be an alternative to other console and add maybe some function 
+Server controller is an application written in JS and Python for backend and HTML,CSS and JS for fronted, the purpose is monitor a PC or VPS or NAS... and view CPU usage,Ram, Log and many more. The target of this project is be an alternative to other console and add maybe some function 
 
 
 ## Build
