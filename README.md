@@ -31,6 +31,8 @@ SunilWang for node-os-utils library for system info part
 
 Matplotlib python library used to plotting data of CPU and RAM usage
 
+Bootstrap for page
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
