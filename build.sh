@@ -15,9 +15,9 @@ cd app
 npm install --production
 cd ..
 cd ..
-cp $(pwd)/script/dist/cpuusage $(pwd)/webssh2/app
-cp $(pwd)/script/dist/ramusage $(pwd)/webssh2/app
-cp $(pwd)/script/log.js $(pwd)/webssh2/app
-cp $(pwd)/script/sysinfo.js $(pwd)/webssh2/app
+cp dist/cpuusage $(pwd)/webssh2/app
+cp dist/ramusage $(pwd)/webssh2/app
+cp log-linux $(pwd)/webssh2/app
+cp sysinfo-linux $(pwd)/webssh2/app
 
 
