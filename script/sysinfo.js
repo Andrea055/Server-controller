@@ -1,3 +1,5 @@
+var fs = require('fs')
+var createHTML = require('create-html')
 const osu = require('node-os-utils')
 const cpu = osu.cpu
 const http = require('http');
@@ -19,8 +21,14 @@ os.oos()
 ip=os.ip()
 arch=os.arch()
 
-//create a server object:
-http.createServer(function (req, res) {
-  res.write("<h1>CPU Model:</h1><a>" + model +"<a> with arch:" + arch + "</a>" + "<h1>Total RAM:</h1><a>" + ram + " GB </a>"+ "<h1>OS:</h1><a>" + ostring + "</a>"+ "<h1>Your local IP:</h1><a>" + ip + "</a>"+ "<h1>Total of process is:</h1><a>" + process + "</a>"); //write a response to the client
-  res.end(); //end the response
-}).listen(8081); //the server object listens on port 8081
+var html = createHTML({
+  title: 'SystemInfo',
+  scriptAsync: true,
+  lang: 'en',
+  head: '<meta name="description" content="example"> <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">',
+  body: "<table class=" + "table table-dark" + "><thead><tr><th scope=" + "col" + ">CPU</th><th scope=" + "col" + ">RAM</th><th scope=" + "col" + ">IP</th><th scope=" + "col" + " + "+ ">Total Process</th></tr><th scope=" + "col" + " + "+ ">IP</th></tr></thead><tbody><tr><td>" + model + "</td><td>" + ram +"</td><td>" + ip +"</td><td>" + process +"</td><td>" + ostring +"</td>"
+})
+ 
+fs.writeFile('index.html', html, function (err) {
+  if (err) console.log(err)
+})
