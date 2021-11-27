@@ -26,7 +26,7 @@ var html = createHTML({
   scriptAsync: true,
   lang: 'en',
   head: '<meta name="description" content="example"> <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">',
-  body: "<table class=" + "table table-dark" + "><thead><tr><th scope=" + "col" + ">CPU</th><th scope=" + "col" + ">RAM</th><th scope=" + "col" + ">IP</th><th scope=" + "col" + " + "+ ">Total Process</th></tr><th scope=" + "col" + " + "+ ">IP</th></tr></thead><tbody><tr><td>" + model + "</td><td>" + ram + " GB" +"</td><td>" + ip +"</td><td>" + process +"</td><td>" + ostring +"</td>"
+  body: "<table class=" + "table table-dark" + "><thead><tr><th scope=" + "col" + ">CPU</th><th scope=" + "col" + ">RAM</th><th scope=" + "col" + ">IP</th><th scope=" + "col" + " + "+ ">Total Process</th></tr><th scope=" + "col" + " + "+ ">OS</th></tr></thead><tbody><tr><td>" + model + "</td><td>" + ram + " GB" +"</td><td>" + ip +"</td><td>" + process +"</td><td>" + ostring +"</td>"
 })
  
 fs.writeFile('index.html', html, function (err) {
