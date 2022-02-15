@@ -9,6 +9,8 @@ const path = require('path');
 const { response } = require('express');
 const { os } = require('node-os-utils');
 var oscheck = require('os');
+const nodeDiskInfo = require('node-disk-info');
+const systemDisk = require('system-disk');
 let books = [];
 
 app.use(cors());
@@ -60,6 +62,22 @@ app.get('/misc', (req, res) => {
     })
   
 });
+app.get('/drive', (req, res) => {
+
+  // sync way
+try {
+  const disks = nodeDiskInfo.getDiskInfoSync();
+  printResults('SYNC WAY', disks);
+} catch (e) {
+  console.error(e);
+}
+
+function printResults(title, disks) {
+
+  res.send(disks)
+
+}
+});
 
 app.get('/', (req, res) => {
   
@@ -68,7 +86,7 @@ fs.readFile('index.html', 'utf8' , (err, data) => {
     console.error(err)
     return
   }
-  res.sendFile(path.join(__dirname + 'script.js')); 
+  
   res.send(data)
 })
 
@@ -80,14 +98,27 @@ app.get('/network', (req, res) => {
       console.error(err)
       return
     }
-    res.sendFile(path.join(__dirname + 'script.js')); 
+    
     res.send(data)
   })
   
   });
+  app.get('/disk', (req, res) => {
+  
+    fs.readFile('drive/drive.html', 'utf8' , (err, data) => {
+      if (err) {
+        console.error(err)
+        return
+      }
+      
+      res.send(data)
+    })
+    
+    });
 app.use(express.static('js'));
 app.use(express.static('network'));
 app.use(express.static('css'));
+app.use(express.static('drive'));
 app.listen(port, () => console.log(`Server controller on port ${port}!`));
 
 
