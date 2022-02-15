@@ -41,11 +41,15 @@ app.get('/ram', (req, res) => {
 });
 app.get('/net', (req, res) => {
   var netstat = osu.netstat
+  
   netstat.stats()
   .then(info => {
     res.send(info);
   })
     
+});
+app.get('/ip', (req, res) => {
+res.send(oscheck.networkInterfaces())
 });
 app.get('/misc', (req, res) => {
   var osCmd = osu.osCmd
@@ -59,7 +63,7 @@ app.get('/misc', (req, res) => {
 
 app.get('/', (req, res) => {
   
-fs.readFile('graph.html', 'utf8' , (err, data) => {
+fs.readFile('index.html', 'utf8' , (err, data) => {
   if (err) {
     console.error(err)
     return
@@ -69,9 +73,21 @@ fs.readFile('graph.html', 'utf8' , (err, data) => {
 })
 
 });
-
+app.get('/network', (req, res) => {
+  
+  fs.readFile('network/net.html', 'utf8' , (err, data) => {
+    if (err) {
+      console.error(err)
+      return
+    }
+    res.sendFile(path.join(__dirname + 'script.js')); 
+    res.send(data)
+  })
+  
+  });
 app.use(express.static('js'));
+app.use(express.static('network'));
 app.use(express.static('css'));
-app.listen(port, () => console.log(`Hello world app listening on port ${port}!`));
+app.listen(port, () => console.log(`Server controller on port ${port}!`));
 
 
